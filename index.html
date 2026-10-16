@@ -4,8 +4,85 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f3ea">
-  <meta name="description" content="An interactive illustration of mining gaps and machine ownership costs in proof-of-work mining.">
-  <title>Mining gaps</title>
+  <title>Mining Gap in Bitcoin</title>
+  <meta name="description" content="Every four years, the block subsidy is cut in half, so fees must make up the difference. Right after a block is found, few fees are left, and miners may wait in the future. This wait is the mining gap. Follow a miner and an investor to see what makes the mining gap shorter or longer.">
+  <meta name="author" content="Hasan Selçuk Kılıç">
+  <link rel="canonical" href="https://mininggap.org/">
+  <link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mining gap">
+  <meta property="og:url" content="https://mininggap.org/">
+  <meta property="og:title" content="Mining Gap in Bitcoin">
+  <meta property="og:description" content="Every four years, the block subsidy is cut in half, so fees must make up the difference. Right after a block is found, few fees are left, and miners may wait in the future. This wait is the mining gap. Follow a miner and an investor to see what makes the mining gap shorter or longer.">
+  <meta property="og:image" content="https://mininggap.org/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A miner beside his machine, the next block of transactions, and an investor considering buying machines">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@hasanselcukkc">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mininggap.org/#website",
+        "url": "https://mininggap.org/",
+        "name": "Mining gap",
+        "inLanguage": "en",
+        "creator": { "@id": "https://mininggap.org/#hasan" }
+      },
+      {
+        "@type": "LearningResource",
+        "@id": "https://mininggap.org/#guide",
+        "url": "https://mininggap.org/",
+        "name": "Mining Gap in Bitcoin",
+        "description": "Every four years, the block subsidy is cut in half, so fees must make up the difference. Right after a block is found, few fees are left, and miners may wait in the future. This wait is the mining gap. Follow a miner and an investor to see what makes the mining gap shorter or longer.",
+        "learningResourceType": "Interactive simulation",
+        "isAccessibleForFree": true,
+        "inLanguage": "en",
+        "keywords": "mining gap, Bitcoin mining, transaction fees, block subsidy, fee-dominated regime, halving, capital costs, security budget, proof of work, hashpower",
+        "about": [
+          { "@type": "Thing", "name": "Mining gap" },
+          { "@type": "Thing", "name": "Bitcoin" },
+          { "@type": "Thing", "name": "Proof of work" },
+          { "@type": "Thing", "name": "Transaction fees" },
+          { "@type": "Thing", "name": "Block subsidy" }
+        ],
+        "author": { "@id": "https://mininggap.org/#hasan" },
+        "isBasedOn": { "@id": "https://mininggap.org/#paper" }
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://mininggap.org/#paper",
+        "headline": "Capital Costs Protect the Network: Mining Gap Dynamics in Proof-of-Work Blockchains Under a Stochastic Mempool",
+        "author": [
+          { "@id": "https://mininggap.org/#hasan" },
+          { "@type": "Person", "name": "Nail Akar", "affiliation": { "@id": "https://mininggap.org/#bilkent" } }
+        ],
+        "keywords": "proof-of-work, mining gap, blockchain security, transaction fees, capital costs"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mininggap.org/#hasan",
+        "name": "Hasan Selçuk Kılıç",
+        "affiliation": { "@id": "https://mininggap.org/#bilkent" },
+        "sameAs": ["https://x.com/hasanselcukkc", "https://www.linkedin.com/in/hasan-selcuk-kilic"]
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "@id": "https://mininggap.org/#bilkent",
+        "name": "Bilkent University"
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tour.css">
   <script src="model.js" defer></script>
