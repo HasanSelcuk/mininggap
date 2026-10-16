@@ -1,0 +1,245 @@
+/* Introductory scenes are isolated from the original simulation layout. */
+[hidden] { display: none !important; }
+body.onboarding > .board { display: none; }
+.onboarding-panel { max-width: 1380px; margin: 0 auto; padding: 34px 46px 32px; min-height: 650px; background: var(--paper); border: 1px solid #d6dbc9; border-radius: 8px 5px 7px 6px; background-image: radial-gradient(#6b74590a .6px,transparent .6px); background-size: 6px 6px; }
+.intro-welcome { text-align: center; }
+.intro-welcome .eyebrow { color: #7c896f; }
+.intro-welcome h2 { font: 400 clamp(26px,3vw,40px)/1.4 var(--serif); margin: 10px 0 13px; }
+.intro-welcome > p { color: #6a785f; font-size: 14px; line-height: 1.85; }
+.welcome-actions .intro-follow { color: #6a785f; font-size: 14px; line-height: 1.6; text-align: center; margin-bottom: 4px; }
+.intro-stage-wrap { min-width: 0; width: 100%; }
+#intro-stage { display: block; width: 100%; max-width: 1000px; margin: 0 auto; overflow: visible; }
+.onboarding-panel[data-scene='welcome'] .intro-stage-wrap { max-width: 1100px; margin: 4px auto 16px; }
+.intro-welcome h2 { margin-top: 0; }
+#intro-stage .tour-hand.welcome-question { font-size: 26px; }
+.welcome-actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.onboarding-panel .primary-button { border: 1px solid #56764c; border-radius: 5px 3px 6px 4px; padding: 12px 23px; font-size: 13px; background: #58784d; transition: background .2s, transform .2s; }
+.onboarding-panel .primary-button:hover { background: #46683d; transform: translateY(-2px); }
+.onboarding-panel .primary-button:disabled { cursor: default; transform: none; }
+.welcome-actions .primary-button { font-size: 16px; padding: 13px 32px; }
+.welcome-actions .primary-button span { margin-left: 22px; }
+.onboarding-panel .text-button { font-size: 12px; color: #6c7c60; }
+.onboarding-panel button:disabled { cursor: default; }
+.tour-active { display: grid; grid-template-columns: minmax(240px,340px) minmax(0,1fr); grid-template-rows: auto 1fr; column-gap: 22px; padding-top: 25px; align-items: center; min-height: 640px; }
+.tour-heading { grid-column: 1/-1; display: flex; align-items: center; gap: 18px; color: #738169; font-size: 12px; margin-bottom: 22px; }
+.tour-heading > .text-button { margin-left: auto; }
+.guide-dots { display: flex; gap: 7px; }
+.guide-dots i { height: 4px; width: 22px; background: #e0e4d6; border-radius: 3px; }
+.guide-dots .filled { background: #81996f; }
+.tour-active .intro-stage-wrap { grid-column: 2; grid-row: 2; }
+.guide-card { grid-column: 1; grid-row: 2; min-width: 0; padding: 18px 0; }
+.guide-card h2 { font: 400 clamp(23px,2.1vw,30px)/1.5 var(--serif); margin-bottom: 20px; outline: none; }
+#guide-copy { font-size: 14px; line-height: 1.9; }
+#guide-action { margin-top: 23px; }
+#guide-feedback { font-size: 13px; line-height: 1.8; color: #4c6c42; margin-top: 20px; }
+#guide-feedback:empty { display: none; }
+.guide-navigation { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #dee2d2; margin-top: 28px; padding-top: 20px; }
+#intro-stage .tour-label { font: 16px var(--sans); fill: #6c7c60; }
+#intro-stage .tour-small { font-size: 13px; }
+#intro-stage .tour-hand { font: 23px var(--hand); fill: #728566; }
+#intro-stage .tour-amount { font: 30px var(--hand); fill: #537348; }
+#intro-stage .tour-block-outline { stroke: #9baa89; fill: #f0f3e7; stroke-width: 1.7; }
+#intro-stage .tour-tile { stroke-width: 1.4; }
+#intro-stage .tour-tile.blue { fill: #c0d5df; stroke: #8baebe; }
+#intro-stage .tour-tile.green { fill: #ccddbd; stroke: #91a97f; }
+#intro-stage .tour-arrow { stroke: #a4b194; fill: none; stroke-width: 1.7; }
+#intro-stage .tour-coin circle { fill: #e9d28e; stroke: #b5a16a; stroke-width: 1.4; }
+#intro-stage .tour-coin path { fill: none; stroke: #ac9251; stroke-width: 1.6; }
+#intro-stage .fee-coin circle { fill: #d7e4ca; stroke: #90a77d; }
+#intro-stage .tour-axis { stroke: #bdc9b0; fill: none; stroke-width: 1.5; }
+#intro-stage .tour-cost-line { fill: none; stroke: #ac9d7a; stroke-width: 1.6; stroke-dasharray: 7 7; }
+#intro-stage .tour-revenue-line { fill: none; stroke: #56794d; stroke-width: 3; }
+#intro-stage .tour-before-line { fill: none; stroke: #b9c8ae; stroke-width: 2; stroke-dasharray: 4 7; }
+#intro-stage .tour-bracket { stroke: #b3a173; stroke-width: 1.8; fill: none; }
+#intro-stage .tour-clock-face { stroke: #b5bfaa; stroke-width: 1.8; fill: #f4f5ed; }
+#intro-stage .tour-clock-hand { stroke: #81936f; stroke-width: 2; }
+#intro-stage .tour-price-tag { fill: #f1ecd9; stroke: #bcb391; stroke-width: 1.5; }
+#intro-stage .tour-machine > path { fill: #e1e8d6; stroke: #7a8e6b; stroke-width: 1.6; }
+#intro-stage .tour-machine > circle { fill: #f6f7ef; stroke: #8b9e7b; stroke-width: 1.4; }
+#intro-stage .tour-machine-fan path { fill: #bfd0ad; stroke: #889e75; stroke-width: 1.2; }
+#intro-stage .tour-machine > .tour-led { fill: #bdbba9; stroke: none; }
+#intro-stage .tour-gap-track { stroke: #e8e5d6; stroke-width: 12; }
+#intro-stage .tour-gap-fill { stroke: #b8ac86; stroke-width: 12; }
+#intro-stage .tour-final-check { fill: none; stroke: #88a274; stroke-width: 3; }
+#intro-stage .tour-tile { transform-box: fill-box; transform-origin: center; }
+#intro-stage .tour-found-line { stroke: #c79b42; stroke-width: 1.5; stroke-dasharray: 3 5; fill: none; }
+#intro-stage .tour-reserve-line { stroke: #a3b6bd; stroke-width: 1.4; stroke-dasharray: 4 4; fill: none; }
+#intro-stage .tour-infinity { font: 26px Georgia, serif; fill: #8ea5b0; }
+/* All ambient movement belongs to the welcome and guided scenes. */
+body.onboarding #intro-stage .fan, body.onboarding #intro-stage .coin { animation-play-state: running; }
+.onboarding-panel[data-scene='welcome'] #tour-investor { transform-origin: 70px 160px; animation: intro-sway 4.5s ease-in-out infinite; }
+#intro-stage .welcome-tile { animation: intro-arrival 4s ease-in-out infinite; }
+#intro-stage .welcome-coin { animation: intro-coin 4s ease-in-out infinite; }
+#intro-stage .tour-draw { stroke-dasharray: 300; animation: intro-draw 2s ease-out both; }
+.onboarding-panel[data-scene='6'] .tour-final-check path { stroke-dasharray: 65; animation: intro-check 1s ease-out both; }
+@keyframes intro-sway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg) translateY(-2px); } }
+@keyframes intro-arrival { 0%,12% { opacity: 0; transform: translate(-300px,52px) rotate(-8deg); } 26% { opacity: 1; } 58% { transform: translate(-18px,-10px) rotate(3deg); } 66%,82% { transform: none; opacity: 1; } 92%,100% { transform: none; opacity: 0; } }
+@keyframes intro-coin { 0%,35% { opacity: 0; transform: translate(55px,-57px) scale(.75); } 55% { opacity: 1; transform: translate(0,-30px); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-85px,-5px); } }
+@keyframes intro-draw { from { stroke-dashoffset: 300; } to { stroke-dashoffset: 0; } }
+@keyframes intro-check { from { stroke-dashoffset: 65; } to { stroke-dashoffset: 0; } }
+/* The next button to press breathes softly. Text eases in with each scene. */
+.onboarding-panel .nudge:not(:disabled) { animation: guide-nudge 2.4s ease-in-out infinite; }
+.guide-card.entering > h2, .guide-card.entering > #guide-copy, .guide-card.entering > #guide-action { animation: guide-in .55s cubic-bezier(.22,.7,.25,1) both; }
+.guide-card.entering > #guide-copy { animation-delay: .07s; }
+.guide-card.entering > #guide-action { animation-delay: .14s; }
+#guide-feedback.fresh { animation: guide-in .45s cubic-bezier(.22,.7,.25,1) both; }
+@keyframes guide-nudge { 0%, 100% { box-shadow: 0 0 0 0 #6f915f00; } 45% { box-shadow: 0 0 0 7px #6f915f2b; } }
+@keyframes guide-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 1050px) {
+  .onboarding-panel { padding: 25px; min-height: 570px; }
+  .tour-active { grid-template-columns: minmax(220px,280px) minmax(0,1fr); gap: 10px; }
+  .guide-card h2 { font-size: 23px; }
+  .guide-card { padding: 12px 0; }
+}
+@media (max-width: 760px) {
+  .onboarding-panel { padding: 24px 18px; min-height: 0; }
+  .intro-welcome h2 { font-size: 27px; }
+  .intro-welcome > p, .welcome-actions .intro-follow { font-size: 13px; }
+  .intro-wide-break { display: none; }
+  .onboarding-panel[data-scene='welcome'] .intro-stage-wrap { margin: 24px -8px 12px; width: calc(100% + 16px); }
+  .tour-active { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 0; }
+  .tour-active .intro-stage-wrap { grid-column: 1; grid-row: 2; margin: 8px 0 20px; }
+  .guide-card { grid-column: 1; grid-row: 3; padding: 0; }
+  .guide-card h2 { font-size: 24px; margin-bottom: 12px; }
+  .tour-heading { gap: 10px; margin-bottom: 6px; }
+  .guide-dots { gap: 4px; }
+  .guide-dots i { width: 15px; }
+  .guide-navigation { margin-top: 20px; padding-top: 16px; }
+  #guide-copy { font-size: 13px; line-height: 1.85; }
+  #guide-action { margin-top: 18px; }
+  #guide-feedback { margin-top: 16px; }
+  #intro-stage .tour-small { font-size: 17px; }
+  #intro-stage .tour-label { font-size: 21px; }
+  #intro-stage .tour-hand { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #onboarding-panel *, #onboarding-panel *::before, #onboarding-panel *::after { animation: none !important; transition: none !important; }
+  #intro-stage .welcome-tile, #intro-stage .welcome-coin { opacity: 0; }
+}
+
+/* Audio sits beside the existing footer credit, outside the illustration. */
+.audio-controls { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
+.audio-controls button { display: inline-flex; align-items: center; gap: 5px; padding: 0; font: inherit; color: #718262; white-space: nowrap; }
+.audio-controls svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+.audio-controls button[aria-pressed="false"] { color: #969c8e; }
+.audio-controls button[aria-pressed="false"] svg { opacity: .5; }
+@media (max-width: 600px) {
+  .audio-controls { gap: 10px; }
+  .audio-controls button { gap: 3px; }
+  .audio-controls svg { width: 12px; height: 12px; }
+}
+
+/* Replay sits under the header note once the simulation is open. */
+.header-note .text-button { display: inline-block; margin-top: 4px; font-size: 11px; color: #718262; }
+body.onboarding .header-note .text-button { display: none; }
+.info-actions { display: flex; gap: 22px; margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+/* Live result of the parameters, in minutes of idle time per ten-minute round. */
+.parameter-outcome { display: grid; gap: 9px; margin-top: 6px; padding: 14px 16px; background: #f0f3e7; border: 1px solid #dfe5d3; border-radius: 6px 4px 7px 5px; }
+.outcome-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 92px; align-items: center; gap: 12px; font-size: 12px; color: #67765c; }
+.outcome-row strong { font: 17px var(--hand); color: #56794d; text-align: right; white-space: nowrap; }
+.outcome-track { position: relative; height: 6px; background: #e3e8da; border-radius: 3px; overflow: hidden; }
+.outcome-track i { position: absolute; inset: 0 auto 0 0; width: var(--gap, 0%); background: #b8ac86; border-radius: 3px; transition: width .35s cubic-bezier(.22,.7,.25,1); }
+.outcome-track i.open-ended { background: repeating-linear-gradient(135deg, #b8ac86, #b8ac86 5px, #d5cdb2 5px, #d5cdb2 9px); }
+@media (max-width: 600px) {
+  .header-note .text-button { font-size: 10px; }
+  .parameter-outcome { padding: 12px; }
+  .outcome-row { grid-template-columns: 1fr auto; gap: 4px 10px; }
+  .outcome-track { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* Tips over the open simulation. Fixed position keeps the board layout untouched. */
+.coach { position: fixed; inset: 0; z-index: 20; pointer-events: none; transition: opacity .25s; }
+.coach.coach-away { opacity: 0; visibility: hidden; }
+.coach-ring { position: fixed; border: 1.5px solid #86a473; border-radius: 10px 8px 11px 9px; animation: coach-ring-in .45s cubic-bezier(.22,.7,.25,1) both, coach-pulse 2.4s ease-in-out .45s infinite; }
+.coach-many .coach-ring { border-style: dashed; }
+.coach-card { position: fixed; left: 0; top: 0; width: 300px; max-width: calc(100vw - 32px); padding: 16px 18px 12px; pointer-events: auto; color: var(--ink); background: var(--paper); border: 1px solid #bcc6ad; border-radius: 8px 6px 9px 5px; box-shadow: 0 12px 34px #273b241f, 0 2px 0 #d7d9c740; }
+.coach-card.entering { animation: coach-in .45s cubic-bezier(.22,.7,.25,1) both; }
+.coach-pointer { position: absolute; width: 11px; height: 11px; background: var(--paper); border: 1px solid #bcc6ad; transform: translate(-50%, -50%) rotate(45deg); }
+.coach-card[data-side='below'] .coach-pointer { top: 0 !important; border-right: 0; border-bottom: 0; }
+.coach-card[data-side='above'] .coach-pointer { top: 100% !important; border-left: 0; border-top: 0; }
+.coach-card[data-side='right'] .coach-pointer { left: 0 !important; border-right: 0; border-top: 0; }
+.coach-card[data-side='left'] .coach-pointer { left: 100% !important; border-left: 0; border-bottom: 0; }
+.coach-card[data-side='docked'] { width: auto; right: 16px; }
+.coach-card[data-side='docked'] .coach-pointer { display: none; }
+.coach-step { display: block; font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase; color: #7c896f; margin-bottom: 6px; }
+.coach-title { font: 400 16px/1.45 var(--serif); margin-bottom: 6px; }
+.coach-text { font-size: 12.5px; line-height: 1.7; color: #5d6b53; }
+.coach-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.coach-actions .text-button { font-size: 11px; color: #7c896f; }
+.coach-next { padding: 7px 14px; font-size: 12px; color: #fff; background: #58784d; border-radius: 4px 3px 5px 4px; transition: background .2s; }
+.coach-next:hover { background: #46683d; }
+@keyframes coach-in { from { opacity: 0; transform: translateY(6px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes coach-ring-in { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+@keyframes coach-pulse { 0%, 100% { box-shadow: 0 0 0 0 #86a47300; } 50% { box-shadow: 0 0 0 6px #86a47322; } }
+@media (max-width: 600px) {
+  .coach-card { padding: 13px 15px 10px; }
+  .coach-title { font-size: 15px; }
+  .coach-text { font-size: 12px; line-height: 1.6; }
+}
+
+/* Desktop frame. fit.js sets the width, the intro panel height, and the board scale.
+   The welcome and tour drawings grow until the panel is full. */
+@media (min-width: 1001px) {
+  body.fit > .site-header, body.fit > .onboarding-panel, body.fit > .site-footer { max-width: var(--frame-width); }
+  body.fit > .board { zoom: var(--board-zoom, 1); max-width: none; width: calc(var(--frame-width) / var(--board-zoom, 1)); }
+  body.fit > .onboarding-panel { min-height: var(--panel-height); }
+  /* The welcome stacks text, drawing and buttons in the middle of the panel. The drawing takes the height left over. */
+  body.fit > .onboarding-panel[data-scene='welcome'] { min-height: var(--welcome-height); display: flex; flex-direction: column; justify-content: center; }
+  body.fit .onboarding-panel[data-scene='welcome'] .intro-stage-wrap { max-width: clamp(480px, calc((var(--welcome-height) - 350px) * 3.46), 1240px); }
+  body.fit .onboarding-panel[data-scene='welcome'] #intro-stage { max-width: 100%; }
+  body.fit .tour-active #intro-stage { max-width: min(100%, calc((var(--panel-height) - 115px) * 2.25)); }
+}
+/* Wide windows give the tour text a little more room to balance the larger drawing. */
+@media (min-width: 1600px) {
+  body.fit .tour-active { grid-template-columns: minmax(240px, clamp(340px, 21vw, 430px)) minmax(0, 1fr); column-gap: 30px; }
+  body.fit .guide-card h2 { font-size: clamp(30px, 1.8vw, 36px); }
+  body.fit #guide-copy { font-size: 15.5px; }
+  body.fit #guide-feedback { font-size: 14px; }
+  body.fit #guide-action { font-size: 14px; padding: 13px 26px; }
+}
+/* Very short windows tighten the welcome text so the drawing keeps its share. */
+@media (min-width: 1001px) and (max-height: 700px) {
+  body.fit .onboarding-panel[data-scene='welcome'] { padding-top: 20px; padding-bottom: 18px; }
+  body.fit .intro-welcome h2 { font-size: 30px; margin: 4px 0 6px; }
+  body.fit .onboarding-panel[data-scene='welcome'] .intro-stage-wrap { margin: 10px auto 12px; }
+  body.fit .onboarding-panel[data-scene='welcome'] .welcome-actions { gap: 8px; }
+}
+
+/* Tour buttons look pressable only while they are. Disabled buttons turn flat and grey. */
+.onboarding-panel #guide-action:disabled { background: #e4e7dc; border-color: #d5dbcb; color: #97a08d; box-shadow: none; opacity: 1; }
+.onboarding-panel #guide-action:disabled:hover { background: #e4e7dc; transform: none; }
+.onboarding-panel #guide-next { padding: 10px 18px; font-size: 13px; border-radius: 5px 3px 6px 4px; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+.onboarding-panel #guide-next:not(:disabled) { background: #58784d; border-color: #56764c; color: #fff; }
+.onboarding-panel #guide-next:not(:disabled):hover { background: #46683d; transform: translateY(-2px); }
+.onboarding-panel #guide-next:disabled { background: transparent; border-color: #dfe3d6; color: #aab2a0; opacity: 1; }
+.onboarding-panel #guide-back:disabled { color: #b4bbab; text-decoration: none; opacity: 1; }
+
+/* The investor's button shines whenever he has something to do. */
+.equilibrium-button.investor-ready { position: relative; overflow: hidden; background: #58784d; border-color: #56764c; color: #fff; animation: investor-glow 2.4s ease-in-out infinite; }
+.equilibrium-button.investor-ready:hover { background: #46683d; }
+.equilibrium-button.investor-ready::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, #ffffff5c 50%, transparent 65%); transform: translateX(-120%); animation: investor-shine 2.4s ease-in-out infinite; pointer-events: none; }
+@keyframes investor-glow { 0%, 100% { box-shadow: 0 0 0 0 #6f915f00; } 45% { box-shadow: 0 0 0 6px #6f915f33; } }
+@keyframes investor-shine { 0%, 40% { transform: translateX(-120%); } 75%, 100% { transform: translateX(120%); } }
+@media (prefers-reduced-motion: reduce) {
+  .equilibrium-button.investor-ready, .equilibrium-button.investor-ready::after { animation: none; }
+}
+
+/* Each parameter has a circled i that opens its explanation below the name. */
+.control-name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.parameter-info { flex-shrink: 0; width: 19px; height: 19px; border: 1px solid #adb89c; border-radius: 50%; font: italic 12px/1 Georgia, serif; color: #78846b; display: inline-grid; place-items: center; transition: background .2s, color .2s; }
+.parameter-info:hover, .parameter-info[aria-expanded='true'] { background: #58784d; border-color: #58784d; color: #fff; }
+.parameter-help { margin: 10px 0 0; padding: 11px 14px; font-size: 12px; line-height: 1.7; color: #5d6b53; background: #f2f4ec; border: 1px solid #e1e6d6; border-radius: 6px; animation: help-open .25s cubic-bezier(.22,.7,.25,1) both; }
+@keyframes help-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* The authors' names lead to the paper. The notebook speaks in the investor's voice. */
+.paper-note { color: inherit; text-decoration: none; }
+/* The footer credit links to the author's profiles. */
+.footer-credit { display: inline-flex; align-items: center; gap: 9px; }
+.social-link { display: inline-flex; color: #8e9a80; transition: color .2s, transform .2s; }
+.social-link:first-of-type { margin-left: 3px; }
+.social-link:hover { color: #46683d; transform: translateY(-1px); }
+.social-link svg { width: 12px; height: 12px; fill: currentColor; }
+.paper-note:hover { text-decoration: underline; text-underline-offset: 3px; }
+.notebook-question { font: 18px/1.5 var(--hand); color: #5d6b53; margin-bottom: 18px; }
+.info-actions a.text-button { margin-left: auto; }

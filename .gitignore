@@ -1,0 +1,33 @@
+# Paper source. Kept private until it is public on arXiv.
+paper-mining-gap.tex
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.synctex.gz
+
+# Optional developer tools
+node_modules/
+test-results/
+playwright-report/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local tool settings
+.claude/
+.env
+
+# Old website
+mininggaps_v1.html
+
+# No need readmes or tests.
+README.md
+
+tests/

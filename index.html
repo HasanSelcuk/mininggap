@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ea">
+  <meta name="description" content="An interactive illustration of mining gaps and machine ownership costs in proof-of-work mining.">
+  <title>Mining gaps</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tour.css">
+  <script src="model.js" defer></script>
+  <script src="audio.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="tour.js" defer></script>
+  <script src="coach.js" defer></script>
+  <script src="fit.js" defer></script>
+</head>
+<body class="onboarding">
+  <header class="site-header">
+    <a class="site-identity" href="./" aria-label="Mining gaps home"><span class="monogram">m<span>g</span></span><div><span class="eyebrow">PROOF OF WORK</span><h1>Mining gaps</h1></div></a>
+    <div class="header-note"><p><a class="paper-note" data-paper-link href="#" target="_blank" rel="noopener">An interactive companion to our paper ↗</a></p><button class="text-button" data-tour-replay>Replay the tour</button></div>
+  </header>
+  <section id="onboarding-panel" class="onboarding-panel" aria-labelledby="intro-title">
+    <div id="intro-welcome" class="intro-welcome">
+      <h2 id="intro-title" tabindex="-1">What happens when Bitcoin runs on fees?</h2>
+      <p>Bitcoin pays miners with new coins, called the block subsidy. Every four years it is cut in half, so fees must make up the difference.<br class="intro-wide-break"> Right after a block is found, few fees are left, and miners may wait. This wait is the mining gap.</p>
+    </div>
+    <div id="tour-heading" class="tour-heading" hidden><span id="guide-progress"></span><div id="guide-dots" class="guide-dots" aria-hidden="true"></div><button id="guide-exit" class="text-button">Skip the tour</button></div>
+    <div class="intro-stage-wrap"><svg id="intro-stage" viewBox="0 0 900 400" role="img" aria-label="A miner and an investor considering when to mine"></svg></div>
+    <div id="welcome-actions" class="welcome-actions"><p class="intro-follow">Follow a miner and an investor to see what makes the mining gap shorter or longer.</p><button id="guide-start" class="primary-button">Let’s begin <span aria-hidden="true">→</span></button><button id="explore-start" class="text-button">Skip to the simulation</button></div>
+    <section id="guide" class="guide-card" aria-labelledby="guide-title" hidden>
+      <h2 id="guide-title" tabindex="-1"></h2><p id="guide-copy"></p>
+      <button id="guide-action" class="primary-button"></button>
+      <p id="guide-feedback" role="status"></p>
+      <div class="guide-navigation"><button id="guide-back" class="text-button">Back</button><button id="guide-next" class="equilibrium-button">Continue <span aria-hidden="true">→</span></button></div>
+    </section>
+  </section>
+  <main class="board" aria-label="Mining gap illustration">
+    <div class="board-toolbar">
+      <div class="scenario-options" aria-label="Market conditions">
+        <label><input id="low-capital" type="checkbox"> Low machine ownership cost</label>
+        <label><input id="low-reward" type="checkbox" checked> Low block subsidy</label>
+      </div>
+      <div class="board-tools">
+        <button class="icon-button" data-settings="mining" data-direct="true" aria-label="Adjust parameters" title="Adjust parameters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6M16 14v6"/></svg></button>
+        <button class="info-button" data-info="overview" aria-label="What everyone is doing" title="How it works">i</button>
+      </div>
+    </div>
+    <div class="transaction-area" id="transaction-area">
+      <button class="arrival-source hotspot" id="arrival-source" data-settings="flow" aria-label="Adjust transaction arrivals" title="Transaction arrivals"><span class="flow-label">High-fee arrivals</span><span class="tx source-tile">+</span><span class="tx source-tile behind">+</span><svg viewBox="0 0 90 28" aria-hidden="true"><path d="M5 15 Q48 9 79 14 M68 7 L80 14 L69 21"/></svg></button>
+      <button class="candidate hotspot" id="candidate" data-settings="rewards" aria-label="Adjust the block subsidy, fees, and block capacity" title="Block subsidy, fees, and block capacity"><span class="object-label">Candidate block</span><span id="block-tiles" class="block-tiles"></span></button>
+      <button class="queue hotspot" id="queue" data-info="queue" aria-label="Learn about high-fee transactions still waiting" title="High-fee transactions still waiting"><span class="flow-label">Still waiting</span><span id="queue-tiles" class="queue-tiles"></span></button>
+      <button class="low-fee-reservoir hotspot" id="low-fee-reservoir" data-info="reserve" aria-label="Unlimited supply of low-fee transactions" title="Unlimited supply of low-fee transactions"><span class="reserve-stack" id="reserve-stack" aria-hidden="true"><i class="tx low-tx"></i><i class="tx low-tx"></i><i class="tx low-tx"></i><span class="infinity">∞</span></span><span class="flow-label">Low-fee reservoir</span></button>
+      <div id="transaction-flights" aria-hidden="true"></div>
+    </div>
+    <div class="main-stage">
+      <button class="miner-scene hotspot" id="miner-scene" data-settings="mining" aria-label="Adjust the miner’s electricity cost and hashpower" title="The miner"><span class="speech" id="miner-speech" role="status">Not worth mining now.</span><svg id="miner-art" viewBox="0 0 260 215" role="img" aria-label="Miner waiting beside an idle machine"></svg></button>
+      <button class="live-chart chart-button" id="revenue-open" data-chart="revenue" aria-label="Enlarge the miner’s revenue graph" title="Expected revenue - time chart"><span class="chart-heading">Expected revenue <span class="expand-mark" aria-hidden="true">↗</span></span><span class="chart-caption">Mining begins when expected revenue covers electricity.</span><svg id="revenue-chart" viewBox="0 0 580 270" role="img" aria-label="Expected revenue compared with electricity cost"></svg></button>
+    </div>
+    <div class="bottom-stage">
+      <div class="investor-panel">
+        <button id="investor-button" class="investor-character hotspot" aria-label="Open the investor’s notebook" title="The investor’s notebook"><svg id="investor-art" viewBox="0 0 160 180" role="img" aria-label="Investor considering mining"></svg><span>Investor <span aria-hidden="true">↗</span></span></button>
+        <div class="investor-actions"><p id="investor-summary" class="investor-thought">I’d invest.</p><button id="equilibrium-button" class="equilibrium-button">Let him invest <span aria-hidden="true">→</span></button><div id="entry-motion" class="entry-motion" role="status"></div></div>
+      </div>
+      <button class="history chart-button" data-chart="history" aria-label="Enlarge the mempool history" title="Mempool History Chart"><span class="chart-heading">Mempool history <span class="expand-mark" aria-hidden="true">↗</span></span><span class="history-body"><svg id="history-chart" viewBox="0 0 650 160" role="img" aria-label="History of waiting high-fee transactions. Green shading marks mining."></svg><span class="history-stats"><span>Average mining gap = <strong id="average-gap">—</strong></span><span><strong id="unused-power">—</strong> of hashpower is not used</span></span></span></button>
+    </div>
+    <div class="transport">
+      <div class="play-controls"><button id="play-button" class="play-button" aria-label="Pause simulation" title="Pause">Ⅱ</button><button id="step-button" class="icon-button" title="Next event" aria-label="Step to next event">▹|</button><button id="reset-button" class="icon-button" title="Restart" aria-label="Restart simulation">↺</button></div>
+      <label class="speed-label" for="speed">Speed</label><select id="speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="3">3×</option><option value="10">10×</option></select>
+      <span class="mining-key"><i></i> Mining</span>
+    </div>
+  </main>
+  <footer class="site-footer"><span class="footer-credit">Made by Hasan Selçuk<a class="social-link" href="https://x.com/hasanselcukkc" target="_blank" rel="noopener" aria-label="Hasan Selçuk on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.59-6.64 7.59H.47l8.6-9.83L0 1.15h7.6l5.24 6.93ZM17.6 20.64h2.04L6.49 3.24H4.3Z"/></svg></a><a class="social-link" href="https://www.linkedin.com/in/hasan-selcuk-kilic" target="_blank" rel="noopener" aria-label="Hasan Selçuk on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a></span><div class="audio-controls" role="group" aria-label="Audio">
+    <button id="audio-music" aria-label="Background music" aria-pressed="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 14V4l8-2v10M8 7l8-2"/><ellipse cx="5.5" cy="15" rx="2.5" ry="2"/><ellipse cx="13.5" cy="13" rx="2.5" ry="2"/></svg><span>Music on</span></button>
+    <button id="audio-effects" aria-label="Sound effects" aria-pressed="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8h3l4-4v12l-4-4H3zM13 7q3 3 0 6M15 4q6 6 0 12"/></svg><span>Sounds on</span></button>
+  </div></footer>
+  <dialog id="settings-dialog" aria-labelledby="settings-title">
+    <div class="dialog-top"><h2 id="settings-title">The miner</h2><button class="close-dialog icon-button" aria-label="Close parameters">×</button></div>
+    <p id="settings-description" class="object-explanation"></p>
+    <details id="parameter-details"><summary>Adjust parameters <span>⌄</span></summary>
+      <nav class="settings-tabs" aria-label="Parameter groups"><button data-settings-tab="rewards">Block</button><button data-settings-tab="mining">Miner</button><button data-settings-tab="flow">Transactions</button></nav>
+      <div id="main-controls"></div><div id="flow-controls"></div>
+      <div class="parameter-outcome" aria-live="polite">
+        <div class="outcome-row"><span>Expected mining gap now</span><span class="outcome-track"><i id="outcome-now-bar"></i></span><strong id="outcome-now"></strong></div>
+        <div class="outcome-row"><span>After the investor acts</span><span class="outcome-track"><i id="outcome-after-bar"></i></span><strong id="outcome-after"></strong></div>
+      </div>
+      <div class="settings-footer"><button id="defaults-button" class="text-button">Restore defaults</button><button id="apply-settings" class="primary-button">Continue</button></div>
+    </details>
+  </dialog>
+  <dialog id="chart-dialog" class="chart-dialog" aria-labelledby="chart-title">
+    <div class="dialog-top"><h2 id="chart-title">Expected revenue</h2><button class="close-dialog icon-button" aria-label="Close enlarged graph">×</button></div>
+    <p id="chart-description" class="object-explanation"></p>
+    <svg id="expanded-chart" role="img" aria-label="Enlarged graph"></svg>
+    <div class="chart-dialog-footer"><span class="mining-key"><i></i> Mining</span></div>
+  </dialog>
+  <dialog id="info-dialog" aria-labelledby="info-title">
+    <div class="dialog-top"><span>How it works</span><button class="close-dialog icon-button" aria-label="Close explanation">×</button></div>
+    <h2 id="info-title"></h2><div id="info-body"></div>
+  </dialog>
+  <dialog id="notebook-dialog" class="notebook" aria-labelledby="notebook-title">
+    <div class="dialog-top"><span>The investor’s notebook</span><button class="close-dialog icon-button" aria-label="Close notebook">×</button></div>
+    <h2 id="notebook-title">The investor</h2><p class="object-explanation">He buys machines when expected revenue covers electricity and machine ownership costs together.</p><p class="notebook-question">“What net profit can I expect from owning one unit of hashpower for one round?”</p>
+    <div id="notebook-ledger"></div><p id="notebook-verdict" class="notebook-verdict"></p>
+    <p class="notebook-unit">A round is the time between two consecutive blocks. It lasts ten minutes on average. These are expected amounts in dollars. A single round can pay more or less.</p><div class="notebook-links"><button data-settings="mining" data-direct="true" class="text-button">Adjust costs ↗</button></div>
+  </dialog>
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>
