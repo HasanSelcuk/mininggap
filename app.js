@@ -7,8 +7,8 @@
   let params = scenario(false, true, true), sim = new Simulation(params), running = false, speed = 1;
   let reaction = null, reactionUntil = 0, lastPose = '', lastInvestor = '', equilibriumAnimation = null;
   let toastTimer, lastFrame = performance.now(), lastPaint = 0;
-  // The paper link is a placeholder until the arXiv listing exists.
-  const PAPER_URL = 'https://arxiv.org/';
+
+  const PAPER_URL = 'https://arxiv.org/pdf/2610.22451';
   const fields = [
     { key: 'subsidy', name: 'Block subsidy', min: 0, max: 80, step: .1, unit: '$ / block',
       help: 'New bitcoin paid to the miner who finds a block. Every block pays the same block subsidy, so it is available from the first moment of a round, before any fees arrive. A higher block subsidy shortens the mining gap. After the investor acts, it also brings more hashpower.' },
